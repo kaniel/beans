@@ -186,7 +186,7 @@ func Syncdb() {
 	Connect()
 	o = orm.NewOrm()
 	name := "default"
-	force := true
+	force := false
 	verbose := true
 
 	err := orm.RunSyncdb(name, force, verbose)
