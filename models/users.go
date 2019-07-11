@@ -13,7 +13,7 @@ var o orm.Ormer
 
 type User struct {
 	Id 			int64		`orm:"auto;PK"`
-	email 		string
+	Email 		string
 	Uid 		string
 	Pword		string
 	Active		int			`orm:"default(0)"`	  //0:正常，1:禁用
@@ -113,7 +113,7 @@ func InsertSuper() {
 	fmt.Println("roles:", r.Id, r.Status, r.Name, r.Description)
 	user := new(User)
 	user.Active = 0
-	user.email = "123123@admin.com"
+	user.Email = "123123@admin.com"
 	user.Pword = "123123"
 	user.Uid = "100011"
 	user.Role = &r
