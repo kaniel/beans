@@ -14,8 +14,8 @@ var o orm.Ormer
 type User struct {
 	Id 			int64		`orm:"auto;PK"`
 	Email 		string
-	Uid 		string
-	Pword		string
+	Uid 		int64
+	Password	string
 	Active		int			`orm:"default(0)"`	  //0:正常，1:禁用
 	Profile		*Profile 	`orm:"rel(one)"`
 	Role		*Role	 	`orm:"rel(one)"`
@@ -114,8 +114,8 @@ func InsertSuper() {
 	user := new(User)
 	user.Active = 0
 	user.Email = "123123@admin.com"
-	user.Pword = "123123"
-	user.Uid = "100011"
+	user.Password = "123123"
+	user.Uid = 100011
 	user.Role = &r
 
 	profile := new(Profile)

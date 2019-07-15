@@ -2,24 +2,25 @@
 {{define "head"}}
 <title> test-login </title>
 <script type="text/javascript">
-    $(function(){
-        $("#dialog").dialog({
-            closable:false,
-            buttons:[{
-            text:'登录',
-            iconCls:'icon-save',
-            handler:function(){
-                fromsubmit();
-            }
-        },{
-            text:'重置',
-            iconCls:'icon-cancel',
-            handler:function(){
-                $("#form").from("reset");
-            }
-        }]
-        });
+$(function(){
+    $("#ddd").dialog({
+        closable:false,
+        buttons:[{
+        text:'登录111',
+        iconCls:'icon-save',
+        handler:function(){
+            fromsubmit();
+        }
+    },{
+        text:'重置',
+        iconCls:'icon-save',
+        handler:function(){
+            $("#form").from("reset");
+        }
+    }]
     });
+});
+
 
 function fromsubmit(){
     $("#form").form('submit',{
@@ -28,12 +29,13 @@ function fromsubmit(){
             return $("#form").form('validate');
         },
         success:function(r){
-            var r = $.parseJSON( r );
-            if(r.status){
-                location.href = "/auth/index"
-            }else{
-                vac.alert(r.info);
-            }
+            location.href = "/"
+            // var r = $.parseJSON( r );
+            //if(r.status){
+            //    location.href = "/auth"
+            //}else{
+            //    alert(r.info);
+            //}
         }
     });
 }
@@ -48,18 +50,19 @@ var SubmitOrHidden = function(evt){
 </script>
 {{end}}
 {{define "body"}}
-<form id="form" method="post">
-<div style="text-align:center;margin:0 auto;width:350px;height:250px;" id="dialog" title="登录">
-<div style="padding:20px 20px 20px 40px;" >
-<table >
-    <tr>
-        <td>用户名：</td><td><input type="text" class="easyui-validatebox" required="true" name="username" missingMessage="请输入用户名"/></td>
-    </tr>
-    <tr>
-        <td>密码：</td><td><input type="password" class="easyui-validatebox" required="true" name="password" missingMessage="请输入密码"/></td>
-    </tr>
-</table>
-</form>
-</div>
+    {{define ""}}
+<div style="text-align:center;margin:0 auto;width:350px;height:250px;" id="ddd" title="登录">
+    <div style="padding:20px 20px 20px 40px;" >
+        <form id="form" method="post">
+            <table >
+                <tr>
+                    <td>用户名：</td><td><input type="text" class="easyui-validatebox" required="true" name="username" missingMessage="请输入用户名"/></td>
+                </tr>
+                <tr>
+                    <td>密码：</td><td><input type="password" class="easyui-validatebox" required="true" name="password" missingMessage="请输入密码"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 {{end}}
